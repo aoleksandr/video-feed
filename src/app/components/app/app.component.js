@@ -6,7 +6,6 @@ export default {
   controller($http) {
     $http.get('https://cdn.playbuzz.com/content/feed/items').then(res => {
       this.feed = res.data.items;
-      console.log('feed', this.feed);
     });
   }
 };

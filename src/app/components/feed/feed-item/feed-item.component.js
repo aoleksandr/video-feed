@@ -7,10 +7,13 @@ export default {
     data: '<'
   },
   template,
-  controller($sce) {
+  controller($sce, embedCodeService) {
     this.$onInit = function() {
-      console.log('init');
-    }
-    this.code = $sce.trustAsResourceUrl('https://www.youtube.com/embed/z9Ul9ccDOqE');
+      if(!this.data.title || !this.data.views) {
+        this.missing = true;
+        return;
+      }
+      this.code = $sce.trustAsHtml(embedCodeService.getCode(this.data));
+    };
   }
 };

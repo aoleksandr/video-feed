@@ -1,8 +1,7 @@
-<div class="feed-item">
+<div class="feed-item" ng-if="!$ctrl.missing">
   <div class="item-header">
-    <span class="title">{{$ctrl.data.title}}</span><span class="views-count">{{$ctrl.data.views}} views</span>
+    <span class="title">{{$ctrl.data.title}}</span><span class="views-count">{{$ctrl.data.views | formatNumber | uppercase}} views</span>
   </div>
-  <div class="item-body">
-    <iframe ng-src="{{$ctrl.code}}" frameborder="0" allowfullscreen></iframe>
-  </div>
+  <div class="item-body" ng-bind-html="$ctrl.code"></div>
 </div>
+<missing-item type="type" ng-if="$ctrl.missing"/>
