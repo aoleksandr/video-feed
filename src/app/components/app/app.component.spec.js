@@ -8,11 +8,11 @@ describe('appComponent', () => {
 
     angular.mock.inject(($rootScope, $compile) => {
       scope = $rootScope.$new();
-      element = $compile(angular.element('<app></app>'))(scope);
+      element = $compile(angular.element('<app/>'))(scope);
     })
   });
 
-  it('should true the true', () => {
+  it('should output the text', () => {
     expect(element.text()).toBe('angular works');
   })
 });
